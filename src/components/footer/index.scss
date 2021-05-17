@@ -1,0 +1,72 @@
+@import "../../styles/variables";
+
+.footer {
+  background-color: $color-footer-bg;
+  border-top-right-radius: 128px;
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    gap: 48px;
+    padding: 64px 0px;
+
+    @media #{$screen-medium} {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media #{$screen-large} {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+
+  &__logo {
+    @media #{$screen-medium} {
+      grid-column: 1 / 4;
+    }
+
+    @media #{$screen-large} {
+      grid-column: 1 / 2;
+      align-self: start;
+    }
+  }
+
+  &__links-strip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    @media #{$screen-medium} {
+      align-self: start;
+    }
+
+    @media #{$screen-large} {
+      justify-self: start;
+      align-items: flex-start;
+    }
+  }
+
+  &__links-strip-heading {
+    margin-bottom: 12px;
+  }
+
+  &__link {
+    color: $color-footer-text;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__attribution {
+    @media #{$screen-medium} {
+      grid-column: 1 / 4;
+    }
+
+    @media #{$screen-large} {
+      grid-column: 1 / 5;
+    }
+  }
+}

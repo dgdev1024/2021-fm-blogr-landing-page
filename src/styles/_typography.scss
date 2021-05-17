@@ -1,0 +1,103 @@
+@import "./variables";
+
+/** CSS Reset **/
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: $font-family-normal;
+  font-weight: $font-weight-normal-light;
+}
+
+/** Root Font Size **/
+html {
+  font-size: $font-size-root;
+}
+
+/** Containers **/
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0px auto;
+
+  @media #{$screen-large} {
+    width: 80%;
+  }
+}
+
+/** Headings **/
+.heading {
+  font-family: $font-family-special;
+  font-weight: $font-weight-special-bold;
+  font-size: 1.75rem;
+  text-align: center;
+  color: $color-heading;
+
+  @media #{$screen-medium} {
+    text-align: left;
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &--light {
+    font-weight: $font-weight-normal-light;
+  }
+
+  &--dark-bg {
+    color: $color-text;
+  }
+
+  &--smaller {
+    font-size: 1.5rem;
+  }
+
+  &--larger {
+    font-size: 2rem;
+  }
+
+  &--largest {
+    font-size: 2rem;
+
+    @media #{$screen-medium} {
+      font-size: 2.5rem;
+    }
+
+    @media #{$screen-large} {
+      font-size: 3rem;
+    }
+  }
+}
+
+/** Text **/
+.text {
+  font-family: $font-family-special;
+  line-height: 1.5rem;
+  text-align: center;
+  color: $color-body-copy;
+
+  &--smaller {
+    font-size: 0.9rem;
+  }
+
+  &--light {
+    font-weight: $font-weight-normal-light;
+  }
+
+  &--bold {
+    font-weight: $font-weight-normal-bold;
+  }
+
+  &--dark-bg {
+    color: $color-text;
+  }
+
+  @media #{$screen-medium} {
+    text-align: left;
+
+    &--center {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import "../../styles/variables";
+
+.mobile-submenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  max-height: 0px;
+  overflow: hidden;
+
+  background-color: $color-text-hover;
+  border-radius: 8px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition-property: max-height, opacity, visibility;
+  transition-duration: $time-transition;
+
+  &--active {
+    max-height: 224px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__link {
+    margin: 8px;
+
+    text-decoration: none;
+    font-family: $font-family-special;
+    font-weight: $font-weight-special-bold;
+    color: $color-body-copy;
+
+    &:first-child {
+      margin-top: 24px;
+    }
+
+    &:last-child {
+      margin-bottom: 24px;
+    }
+  }
+}

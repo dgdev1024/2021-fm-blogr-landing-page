@@ -1,0 +1,38 @@
+// Screen Query Variables
+$screen-small: "(min-width: 600px)";
+$screen-medium: "(min-width: 800px)";
+$screen-large: "(min-width: 1000px)";
+$screen-extra-large: "(min-width: 1200px)";
+
+// Color Variables
+$color-cta-text: hsl(356, 100%, 66%);
+$color-cta-bg-hover: hsl(355, 100%, 74%);
+$color-heading: hsl(208, 49%, 24%);
+
+$color-text: hsl(0, 0%, 100%);
+$color-text-hover: hsl(0, 0%, 90%);
+$color-footer-text: hsl(240, 2%, 79%);
+$color-body-copy: hsl(207, 13%, 34%);
+$color-footer-bg: hsl(240, 10%, 16%);
+
+$color-mobile-nav-cta-gradient-start: hsl(13, 100%, 72%);
+$color-mobile-nav-cta-gradient-end: hsl(353, 100%, 62%);
+$color-body-gradient-start: hsl(237, 17%, 21%);
+$color-body-gradient-end: hsl(237, 23%, 32%);
+$color-mobile-nav-solid: hsla(353, 100%, 62%, 0.9);
+
+// Font Variables
+$font-family-special: "Overpass", sans-serif;
+$font-family-normal: "Ubuntu", sans-serif;
+$font-weight-special-light: 300;
+$font-weight-special-bold: 600;
+$font-weight-normal-light: 400;
+$font-weight-normal-normal: 500;
+$font-weight-normal-bold: 700;
+$font-size-root: 16px;
+
+// Transitions
+$time-transition: 0.3s;
+
+// Other Variables
+$header-height: 100px;

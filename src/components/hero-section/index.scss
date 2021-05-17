@@ -1,0 +1,87 @@
+@import "../../styles/variables";
+
+.hero {
+  height: 100vh;
+  max-height: 480px;
+  position: relative;
+  background-image: url("../../images/bg-pattern-intro.svg"),
+    linear-gradient(
+      to right,
+      $color-mobile-nav-cta-gradient-start,
+      $color-mobile-nav-cta-gradient-end
+    );
+  background-repeat: no-repeat;
+  background-size: 300%, cover;
+  background-position: top 37% left 42%;
+  border-bottom-left-radius: 128px;
+
+  @media #{$screen-medium} {
+    background-size: 225%, cover;
+    background-position: center left 25%;
+  }
+
+  &__scroll-setinel {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1px;
+    height: $header-height;
+    visibility: hidden;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    height: 100%;
+  }
+
+  &__button-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  &__text {
+    @media #{$screen-medium} {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__button {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    font-weight: $font-weight-normal-bold;
+    color: $color-text;
+    background-color: transparent;
+    border: 1px solid $color-text;
+    border-radius: 32px;
+    transition: $time-transition;
+    cursor: pointer;
+
+    @media #{$screen-medium} {
+      padding: 12px 16px;
+      font-size: 1rem;
+    }
+
+    &:hover {
+      background-color: $color-text;
+      color: $color-cta-text;
+    }
+
+    &--inverse {
+      background-color: $color-text;
+      color: $color-cta-text;
+      border: none;
+
+      &:hover {
+        background-color: $color-cta-bg-hover;
+        color: $color-text;
+      }
+    }
+  }
+}

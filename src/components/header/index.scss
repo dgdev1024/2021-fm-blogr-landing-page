@@ -1,0 +1,265 @@
+@import "../../styles/variables";
+
+.header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: $header-height;
+  overflow: hidden;
+  background-color: transparent;
+  z-index: 99;
+  transition-property: height, background-color;
+  transition-duration: $time-transition;
+
+  &--shown-on-mobile {
+    height: 100%;
+    background-color: $color-mobile-nav-solid;
+
+    @media #{$screen-medium} {
+      height: $header-height;
+      background-color: inherit;
+    }
+  }
+
+  &--is-solid {
+    background-color: $color-mobile-nav-solid;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: $header-height 0px;
+    grid-template-areas: "logo toggle" "nav nav";
+
+    @media #{$screen-medium} {
+      grid-template-columns: auto 1fr;
+      grid-template-rows: $header-height;
+      grid-template-areas: "logo nav";
+      gap: 32px;
+    }
+  }
+
+  &__logo {
+    grid-area: logo;
+    align-self: center;
+    justify-self: start;
+  }
+
+  &__toggle {
+    grid-area: toggle;
+    align-self: center;
+    justify-self: end;
+
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    @media #{$screen-medium} {
+      display: none;
+    }
+  }
+
+  &__nav {
+    grid-area: nav;
+    align-self: start;
+    justify-self: center;
+    width: 100%;
+    padding: 16px;
+    background-color: white;
+    opacity: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3);
+
+    transition-property: opacity;
+    transition-duration: $time-transition;
+
+    @media #{$screen-medium} {
+      align-self: center;
+      justify-self: start;
+      display: grid;
+      grid-template-columns: auto auto;
+      width: 100%;
+      padding: 8px 0px;
+      background-color: transparent;
+      box-shadow: none;
+      border-radius: none;
+      opacity: 1;
+    }
+  }
+
+  &--shown-on-mobile &__nav {
+    opacity: 1;
+  }
+
+  &__links {
+    @media #{$screen-medium} {
+      align-self: center;
+      justify-self: start;
+    }
+  }
+
+  &__submenu-group {
+    display: flex;
+    flex-direction: column;
+
+    @media #{$screen-medium} {
+      display: inline-block;
+    }
+  }
+
+  &__submenu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    font-family: $font-family-special;
+    font-weight: $font-weight-special-bold;
+    font-size: 1.2rem;
+    color: $color-footer-bg;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition-property: color;
+    transition-duration: $time-transition;
+
+    &:hover {
+      color: $color-body-copy;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @media #{$screen-medium} {
+      padding: 8px;
+      font-size: 1rem;
+      font-family: $font-family-normal;
+      font-weight: $font-weight-normal-bold;
+      color: $color-text-hover;
+
+      &:hover {
+        color: $color-text;
+        text-decoration: underline;
+      }
+    }
+
+    @media #{$screen-large} {
+      padding: 8px 12px;
+    }
+
+    @media #{$screen-extra-large} {
+      padding: 8px 16px;
+    }
+  }
+
+  &__submenu-icon {
+    transition-property: transform;
+    transition-duration: $time-transition;
+  }
+
+  &__submenu-toggle--active &__submenu-icon {
+    transform: rotate(180deg);
+  }
+
+  &__submenu-title {
+    font-family: inherit;
+    font-weight: inherit;
+  }
+
+  &__separator {
+    width: 100%;
+    height: 1px;
+    margin: 16px 0px;
+    background-color: $color-footer-text;
+
+    @media #{$screen-medium} {
+      display: none;
+    }
+  }
+
+  &__button-strip {
+    align-self: center;
+    justify-self: end;
+    margin: 16px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    @media #{$screen-medium} {
+      flex-direction: row;
+    }
+  }
+
+  &__button {
+    width: 50%;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-family: $font-family-special;
+    font-weight: $font-weight-special-bold;
+    color: $color-footer-bg;
+    background-color: transparent;
+    border: none;
+    border-radius: 32px;
+    cursor: pointer;
+    transition-property: color;
+    transition-duration: $time-transition;
+
+    &:hover {
+      color: $color-body-copy;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &--signup {
+      font-size: 1.1rem;
+      font-family: $font-family-normal;
+      font-weight: $font-weight-normal-bold;
+      background-image: linear-gradient(
+        to right,
+        $color-mobile-nav-cta-gradient-start,
+        $color-mobile-nav-cta-gradient-end
+      );
+      color: $color-text;
+
+      &:hover {
+        color: $color-text-hover;
+      }
+
+      @media #{$screen-medium} {
+        background-image: none;
+        background-color: $color-text;
+        color: $color-cta-bg-hover !important;
+        transition-property: background-color, color;
+
+        &:hover {
+          color: $color-text !important;
+          background-color: $color-cta-bg-hover;
+          text-decoration: none;
+        }
+      }
+    }
+
+    @media #{$screen-medium} {
+      width: 128px;
+      font-size: 1rem;
+      font-family: $font-family-normal;
+      font-weight: $font-weight-normal-bold;
+      color: $color-text-hover;
+
+      &:hover {
+        color: $color-text;
+      }
+    }
+  }
+}
